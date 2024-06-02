@@ -42,6 +42,10 @@ const upload = multer({
   }
 });
 
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, './index.html'));
+});
+
 // Endpoint untuk mengunggah gambar atau video
 app.post('/upload', upload.single('file'), (req, res) => {
   try {
